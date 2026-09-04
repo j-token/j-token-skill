@@ -10,6 +10,10 @@
 
 Computer Use로 실제 프로그램 화면을 캡처하고, 이미지가 포함된 단계별 Markdown 강의 자료를 만듭니다. 되돌릴 수 없는 작업은 변경 내용, 영향 범위, 복구 방법과 필요한 백업을 실행 전에 글로 설명합니다.
 
+### Instruction Interview
+
+한 번에 하나씩 구체적인 질문을 던지고 필요한 자료를 조사하여, 막연하거나 복잡한 요청을 다른 AI가 실행할 수 있는 지시문으로 정리합니다.
+
 ## 설치
 
 ```powershell
@@ -22,11 +26,18 @@ UI 강의 자료 스킬을 설치합니다.
 npx skills add j-token/j-token-skill --skill create-ui-tutorial
 ```
 
+인터뷰를 통해 실행 가능한 지시문을 만드는 스킬을 설치합니다.
+
+```powershell
+npx skills add j-token/j-token-skill --skill instruction-interview
+```
+
 모든 프로젝트에서 사용하려면 전역 옵션을 추가합니다.
 
 ```powershell
 npx skills add j-token/j-token-skill --skill implementation-roadmap --global
 npx skills add j-token/j-token-skill --skill create-ui-tutorial --global
+npx skills add j-token/j-token-skill --skill instruction-interview --global
 ```
 
 ## 사용
@@ -46,3 +57,11 @@ $create-ui-tutorial을 사용해 Blender에서 새 애니메이션 파일을 만
 ```
 
 Windows 프로그램 캡처에는 Computer Use가 필요합니다.
+
+막연한 요청을 구체적인 지시문으로 만들려면 다음과 같이 요청합니다.
+
+```text
+$instruction-interview를 사용해 카페 재고 관리 앱 아이디어를 실행 가능한 지시문으로 정리해 주세요.
+```
+
+이 스킬은 한 번에 질문 하나만 제시하고, 인터뷰가 끝나면 정해진 Markdown 형식의 지시문을 대화 화면에 출력합니다.
