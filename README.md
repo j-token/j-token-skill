@@ -14,6 +14,10 @@ Computer Use로 실제 프로그램 화면을 캡처하고, 이미지가 포함�
 
 한 번에 하나씩 구체적인 질문을 던지고 필요한 자료를 조사하여, 막연하거나 복잡한 요청을 다른 AI가 실행할 수 있는 지시문으로 정리합니다.
 
+### Context Audit
+
+Claude Code 설정(CLAUDE.md, MCP 서버, 스킬, 플러그인)을 감사해 컨텍스트를 낭비하는 항목을 찾고, 자를 것·다시 쓸 것·옮길 것으로 나눈 간결한 설정을 제안합니다.
+
 ## 설치
 
 ```powershell
@@ -32,12 +36,19 @@ npx skills add j-token/j-token-skill --skill create-ui-tutorial
 npx skills add j-token/j-token-skill --skill instruction-interview
 ```
 
+Claude Code 설정의 컨텍스트 낭비를 감사하는 스킬을 설치합니다.
+
+```powershell
+npx skills add j-token/j-token-skill --skill context-audit
+```
+
 모든 프로젝트에서 사용하려면 전역 옵션을 추가합니다.
 
 ```powershell
 npx skills add j-token/j-token-skill --skill implementation-roadmap --global
 npx skills add j-token/j-token-skill --skill create-ui-tutorial --global
 npx skills add j-token/j-token-skill --skill instruction-interview --global
+npx skills add j-token/j-token-skill --skill context-audit --global
 ```
 
 ## 사용
@@ -65,3 +76,11 @@ $instruction-interview를 사용해 카페 재고 관리 앱 아이디어를 실
 ```
 
 이 스킬은 한 번에 질문 하나만 제시하고, 인터뷰가 끝나면 정해진 Markdown 형식의 지시문을 대화 화면에 출력합니다.
+
+Claude Code 설정의 컨텍스트 낭비를 점검하려면 다음과 같이 요청합니다.
+
+```text
+$context-audit을 사용해 이 프로젝트의 CLAUDE.md, MCP 서버, 스킬 설정을 감사해 주세요.
+```
+
+이 스킬은 개선안과 이전/이후 비교표를 먼저 제시하고, 사용자가 승인하기 전에는 어떤 파일도 수정하지 않습니다.
