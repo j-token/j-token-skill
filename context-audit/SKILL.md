@@ -1,6 +1,7 @@
 ---
 name: "context-audit"
 description: "Claude Code 설정(CLAUDE.md, MCP 서버, 스킬, 플러그인)을 감사해 컨텍스트 낭비를 찾고 간결한 설정을 제안할 때 사용. '컨텍스트 감사', '컨텍스트 정리', '설정 다이어트' 요청 시."
+disable-model-invocation: true
 ---
 
 # Context Audit
